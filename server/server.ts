@@ -4,7 +4,7 @@ import express from "express";
 import cors from "cors"
 import path from "path";
 import { fileURLToPath } from "url";
-import { sequelize } from '.models/index.js'
+import { sequelize } from './models/index.js'
 import router from "./routes/index.js"
 
 
@@ -15,14 +15,19 @@ const __dirname = path.dirname(__filename)
 const app = express();
 const PORT = process.env.PORT || 3001
 
+console.log('mounting cors')
 app.use(cors());
+
+console.log('Mounting express')
 app.use(express.json());
 
-app.use(router);
+console.log('mounting /api router')
+app.use('/api', router);
 
-app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../client/dist', 'index.html'));
-});
+// console.log('mounting *')
+// app.get('/*', (req, res) => {
+//     res.sendFile(path.resolve(__dirname, '../client/dist', 'index.html'));
+// });
 
 sequelize.sync({ force: forceDatabaseRefresh }).then(() => {
   app.listen(PORT, () => {

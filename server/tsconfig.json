@@ -1,0 +1,23 @@
+
+{
+  "compilerOptions": {
+    "target": "ES2020",                     // Modern JS target
+    "module": "ESNext",                     // Use ES modules
+    "moduleResolution": "bundler",          // Resolve modules like Node
+    "rootDir": "./",                         // Root of your TS files
+    "outDir": "./dist",                      // Where compiled JS will go
+    "esModuleInterop": true,                 // Allows default import of CommonJS modules
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,                          // Enable strict type checking
+    "skipLibCheck": true,                    // Skip checking types of node_modules
+    "resolveJsonModule": true,               // Allows importing JSON files
+    "isolatedModules": true                  // Required for ts-node + ESM
+  },
+  "include": [
+    "./**/*.ts"                              // Include all TS files in server and subfolders
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}

@@ -9,7 +9,7 @@ interface CharacterAttributes {
     backstory: string; 
 }
 
-interface CharacterCreation extends Optional<CharacterAttributes, 'id'> { };
+export interface CharacterCreation extends Optional<CharacterAttributes, 'id'> { };
 
 export class Character extends Model<CharacterAttributes, CharacterCreation> implements CharacterAttributes {
     public id!: number;
